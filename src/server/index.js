@@ -1,8 +1,9 @@
 const express = require('express');
-const os = require('os');
+const cors = require('cors')
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 app.get('/api/getUsername', (req, res) => {
   res.send({ username: "deployed-user" });
