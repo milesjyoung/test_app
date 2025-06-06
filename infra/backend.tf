@@ -95,6 +95,11 @@ resource "aws_apigatewayv2_stage" "default" {
   }
 }
 
+resource "aws_cloudwatch_log_group" "api_gw_logs" {
+  name              = "/aws/apigateway/express-api"
+  retention_in_days = 1
+}
+
 resource "aws_lambda_permission" "api_gateway" {
   statement_id  = "AllowAPIGatewayInvoke"
   action        = "lambda:InvokeFunction"
