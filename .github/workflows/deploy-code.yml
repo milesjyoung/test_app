@@ -56,8 +56,8 @@ jobs:
       - name: Zip Lambda
         working-directory: src/server
         run: |
-          npm ci
-          zip -r ../../express-lambda.zip . -x "*node_modules*"
+          npm ci --omit=dev
+          zip -r ../../express-lambda.zip .
 
       - name: Upload Lambda to AWS
         run: |
