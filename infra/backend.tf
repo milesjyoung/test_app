@@ -53,6 +53,12 @@ resource "aws_lambda_function" "express_backend" {
 resource "aws_apigatewayv2_api" "api" {
   name          = "express-api"
   protocol_type = "HTTP"
+
+  cors_configuration {
+    allow_origins = ["*"]  # or use specific CloudFront domain
+    allow_methods = ["GET", "POST", "OPTIONS"]
+    allow_headers = ["*"]
+  }
 }
 
 resource "aws_apigatewayv2_integration" "lambda" {
